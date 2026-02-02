@@ -1,7 +1,13 @@
 class InventoryItem
 {
-    private Item _item;
+    private readonly Item _item;
     public int Quantity {get; private set;}
+
+    public InventoryItem(Item item, int quantity)
+    {
+        _item = item;
+        Quantity = quantity;
+    }
 
     public int Id => _item.Id;
     public bool HasQuantity(int qtd)
