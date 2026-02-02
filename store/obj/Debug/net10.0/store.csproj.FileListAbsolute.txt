@@ -1,0 +1,14 @@
+C:\Users\higor\unity\sells\store\bin\Debug\net10.0\store.exe
+C:\Users\higor\unity\sells\store\bin\Debug\net10.0\store.deps.json
+C:\Users\higor\unity\sells\store\bin\Debug\net10.0\store.runtimeconfig.json
+C:\Users\higor\unity\sells\store\bin\Debug\net10.0\store.dll
+C:\Users\higor\unity\sells\store\bin\Debug\net10.0\store.pdb
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.AssemblyInfoInputs.cache
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.AssemblyInfo.cs
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.csproj.CoreCompileInputs.cache
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.dll
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\refint\store.dll
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.pdb
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\store.genruntimeconfig.cache
+C:\Users\higor\unity\sells\store\obj\Debug\net10.0\ref\store.dll
