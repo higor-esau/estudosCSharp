@@ -5,14 +5,16 @@ class InventoryItem
 
     public InventoryItem(Item item, int quantity)
     {
+        if(quantity < 0)
+            //aqui o certo seria um exceção mas não sei usa-las ainda
         _item = item;
         Quantity = quantity;
     }
 
     public int Id => _item.Id;
-    public bool HasQuantity(int qtd)
+    public bool HasQuantity(int quantity)
     {
-        return qtd <= Quantity;
+        return quantity <= Quantity;
     }
 }
 
