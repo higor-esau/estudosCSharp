@@ -2,6 +2,10 @@
 bin/
 obj/
 
+# Também ignora bin/obj em subpastas
+**/bin/
+**/obj/
+
 # Visual Studio
 .vs/
 *.user
