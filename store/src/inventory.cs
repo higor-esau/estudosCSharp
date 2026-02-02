@@ -1,6 +1,6 @@
 class InventoryItem
 {
-    private readonly Item _item;
+    private Item _item;
     public int Quantity {get; private set;}
 
     public InventoryItem(Item item, int quantity)
