@@ -5,8 +5,15 @@ class InventoryItem
 
     public InventoryItem(Item item, int quantity)
     {
+        //estou usando o exception mesmo sem enteder só pra tirar avisos, mas tá na lista de estudos
+        if (item == null)
+            throw new ArgumentNullException(nameof(item));
+
         if(quantity < 0)
-            //aqui o certo seria um exceção mas não sei usa-las ainda
+            throw new ArgumentOutOfRangeException(nameof(quantity),
+            "Quantity cannot be negative"
+            );
+            
         _item = item;
         Quantity = quantity;
     }
