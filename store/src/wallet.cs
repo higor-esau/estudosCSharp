@@ -4,6 +4,11 @@ class Wallet :  ICanSpendMoney, ICanReceiveMoney
 {
     private  decimal _amount;
 
+    public Wallet(decimal value)
+    {
+        _amount = value;
+    }
+
     public decimal Amount => _amount;
 
     public bool HasMoney(decimal amount)
