@@ -12,9 +12,15 @@ class Item
     }
 }
 //um pequeno exemplo de polimorfismo
-class Consumable : Item
+class Consumable : Item, IUsable
 {
     public Consumable(int id, string name, int price) : base(id ,name, price)
     {
+        
+    }
+
+    public void Use()
+    {
+        Console.WriteLine($"Usando o item {Name}");
     }
 }
