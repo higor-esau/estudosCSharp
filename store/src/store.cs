@@ -29,6 +29,19 @@ class Store: ICanSellItems
     {
         List<InventoryItem> inventoryItems = new List<InventoryItem>()
         {
+            new(new Item(0,  "Espada Curta",        50),  2),
+            new(new Item(1,  "Espada Longa",        80),  3),
+            new(new Item(2,  "Machado",             70),  4),
+            new(new Item(3,  "Adaga",               30), 10)
+        };
+        return inventoryItems;
+
+    }
+
+    private List<InventoryItem> StarInventory2()
+    {
+        List<InventoryItem> inventoryItems = new List<InventoryItem>()
+        {
             new InventoryItem(new Item(0,  "Espada Curta",        50),  2),
             new InventoryItem(new Item(1,  "Espada Longa",        80),  3),
             new InventoryItem(new Item(2,  "Machado",             70),  4),
@@ -53,4 +66,43 @@ class Store: ICanSellItems
         return inventoryItems;
 
     }
+
+    private void TheMenu()
+    {
+        Console.WriteLine("------Nosso itens------");
+        inventory.ViewConsole();
+        Console.WriteLine("-----------------------");
+    }
+
+    public void TrySell(ICanBuyItems buyer)
+    {
+        SaleService saleService = new();
+        int id, quantity;
+        while (true)
+        {
+            TheMenu();
+            Console.WriteLine("Escolha o ID do produto que deseja comprar:");
+            Console.WriteLine("Digite -1 pra voltar ao menu anterior.");
+
+            while (!int.TryParse(Console.ReadLine(), out id))
+            {
+                Console.WriteLine("Digite um valor valido!");
+            }
+
+            if (id < 0 ) return;
+
+            Console.WriteLine("Escolha a quantidade que deseja comprar:");
+            
+            while (!int.TryParse(Console.ReadLine(), out quantity))
+            {
+                Console.WriteLine("Digite um valor valido!");
+            }
+
+            if (quantity < 0 ) return;
+
+           if(!saleService.TryExecuteSale(  this,buyer, id, quantity))
+                Console.WriteLine("Tenho uma má noticia, não foi possivel completar sua compra!");
+        }
+    }
+
 }
