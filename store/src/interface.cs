@@ -26,3 +26,7 @@ interface ICanSellItems: ICanProvideItems, ICanReceiveMoney
     bool TryGetItem(int idItem, out Item? item);
     decimal CalculateTotalPrice(int idItem , int quantity);
 }
+interface IUsable
+{
+    void Use();
+}
