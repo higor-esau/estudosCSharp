@@ -33,6 +33,12 @@ class InventoryItem
         Quantity-=quantity;
         return true;
     }
+
+    public decimal CalculateTotalPrice(int quantity)
+    {
+        return quantity * _item.Price;
+    }
+
 }
 
 class Inventory: ICanReceiveItems, ICanProvideItems
@@ -78,5 +84,21 @@ class Inventory: ICanReceiveItems, ICanProvideItems
                 break;
             }
         }
+    }
+
+    //no momento essa função é um ponto critico, se ela for usada antes de saber se tem o item, vai estourar uma exceção
+    public decimal CalculateTotalPrice(int itemId, int quantity)
+    {
+        foreach(var item in items)
+        {
+            if(itemId == item.Id){
+
+                if(quantity < 0 )
+                    throw new ArgumentNullException(nameof(quantity), "Value invalid");
+                
+                return item.CalculateTotalPrice(quantity);
+            }
+        }
+        throw new ArgumentNullException(nameof(quantity), "Value invalid");
     }
 }
