@@ -1,5 +1,6 @@
 class Player : ICanBuyItems
 {
+    string name;
     private Wallet wallet;
     private Inventory inventory;
 
@@ -14,4 +15,9 @@ class Player : ICanBuyItems
     public bool HasMoney(decimal amount) => wallet.HasMoney(amount);
 
     public void SpendMoney(decimal amount) => wallet.SpendMoney(amount);
+
+    public void Apresentation()
+    {
+        Console.WriteLine("Eu tenho R")
+    }
 }
