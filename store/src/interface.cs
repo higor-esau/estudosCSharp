@@ -23,6 +23,6 @@ interface ICanBuyItems: ICanReceiveItems, ICanSpendMoney
 }
 interface ICanSellItems: ICanProvideItems, ICanReceiveMoney
 {
-    bool TryGetItem(int idItem, out Item item);
+    bool TryGetItem(int idItem, out Item? item);
     decimal CalculateTotalPrice(int idItem , int quantity);
 }
