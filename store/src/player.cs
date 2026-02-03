@@ -6,6 +6,7 @@ class Player : ICanBuyItems
 
     public Player(string name, decimal value)
     {
+        this.name = name;
         wallet = new Wallet(value);
         inventory = new Inventory(new List<InventoryItem>());
     }
