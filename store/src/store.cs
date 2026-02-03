@@ -1,4 +1,4 @@
-class Store: ICanProvideItems, ICanReceiveMoney
+class Store: ICanSellItems
 {
     private Wallet wallet;
     private Inventory inventory;
@@ -9,11 +9,21 @@ class Store: ICanProvideItems, ICanReceiveMoney
         inventory = new Inventory(StarInventory());
     }
 
+    public decimal CalculateTotalPrice(int idItem, int quantity)
+    {
+        return inventory.CalculateTotalPrice(idItem, quantity);
+    }
+
     public bool HasItemQuantity(int itemId, int quantity) => inventory.HasItemQuantity(itemId, quantity);
 
     public void ReceiveMoney(decimal amount) => wallet.ReceiveMoney(amount);
 
     public void RemoveItem(int itemId, int quantity) => inventory.RemoveItem(itemId, quantity);
+
+    public bool TryGetItem(int idItem, out Item? item)
+    {
+        return inventory.TryGetItem(idItem, out item);
+    }
 
     private List<InventoryItem> StarInventory()
     {
