@@ -41,6 +41,10 @@ class InventoryItem
     {
         return quantity * _item.Price;
     }
+    public string View()
+    {
+        return $"{_item.Id} | {_item.Name}:\nPrice: {_item.Price} Quantity: {Quantity}";
+    }
 
 }
 
@@ -105,7 +109,7 @@ class Inventory: ICanReceiveItems, ICanProvideItems
         throw new ArgumentNullException(nameof(quantity), "Value invalid");
     }
 
-    //estou criando um item nomo apartir dos dados do item, pra mandar pro novo inventory, ideia minha é que mais pra frente usaremos uma base de itens padrão onde só precisaremos transicionar o id dela, sempre que um inventory não tiver um item nele, ele busca esse id no inventory padrão.
+    //estou criando um item novo apartir dos dados do item, pra mandar pro novo inventory, ideia minha é que mais pra frente usaremos uma base de itens padrão onde só precisaremos transicionar o id dela, sempre que um inventory não tiver um item nele, ele busca esse id no inventory padrão.
     public bool TryGetItem(int itemId, out Item? item)
     {
         item = null;
@@ -119,5 +123,9 @@ class Inventory: ICanReceiveItems, ICanProvideItems
         return false;
     }
 
-    
+    public void ViewConsole()
+    {
+        foreach(var item in items)
+            Console.WriteLine(item.View());
+    }
 }
