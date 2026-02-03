@@ -29,7 +29,7 @@ class Store: ICanSellItems
     {
         List<InventoryItem> inventoryItems = new List<InventoryItem>()
         {
-            new InventoryItem(new Item(0,  "Espada Curta",        50),  5),
+            new InventoryItem(new Item(0,  "Espada Curta",        50),  2),
             new InventoryItem(new Item(1,  "Espada Longa",        80),  3),
             new InventoryItem(new Item(2,  "Machado",             70),  4),
             new InventoryItem(new Item(3,  "Adaga",               30), 10),

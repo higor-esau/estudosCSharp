@@ -6,6 +6,8 @@ class SaleService
         int itemId,
         int quantity)
     {
+        Console.WriteLine("#####INICIANDO UMA VENDA#####");
+        
         if (!seller.HasItemQuantity(itemId, quantity))
             return false;
 
@@ -14,11 +16,12 @@ class SaleService
         if (!buyer.HasMoney(total))
             return false;
 
-        if (!seller.TryGetItem(itemId, out Item item))
+        if (!seller.TryGetItem(itemId, out Item? item))
             return false;
 
         //nesse codigo eu estou assumindo que o removeitem e SpendMoney nunca daram erro, vou adicionar uma exceção se isso vier a ocorrer, como o foco é treinar interfaces, não estou me atendando a tanto detalhes, mas não quer dizer que eu não o perceba.
-
+        if (item == null)
+            throw new ArgumentNullException("Valor de Item nulo, impossivel continuar!");
         // buyer
         buyer.SpendMoney(total);
         buyer.AddItem(item, quantity);
@@ -29,4 +32,5 @@ class SaleService
 
         return true;
     }
+
 }
