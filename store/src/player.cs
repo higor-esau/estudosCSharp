@@ -4,7 +4,7 @@ class Player : ICanBuyItems
     private Wallet wallet;
     private Inventory inventory;
 
-    public Player(decimal value)
+    public Player(string name, decimal value)
     {
         wallet = new Wallet(value);
         inventory = new Inventory(new List<InventoryItem>());
@@ -18,6 +18,7 @@ class Player : ICanBuyItems
 
     public void Apresentation()
     {
-        Console.WriteLine("Eu tenho R")
+        Console.WriteLine($"Name: {name}");
+        Console.WriteLine($"R$: {wallet.Amount}");
     }
 }
