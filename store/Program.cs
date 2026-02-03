@@ -10,9 +10,7 @@
         //buyer
         Player player = new Player("Higor",x);
         player.Apresentation();
-        saleService.TryExecuteSale(store,player, 0, 2);
-        player.Apresentation();
-        saleService.TryExecuteSale(store,player, 0, 2);
+        store.TrySell(player);
         player.Apresentation();
 
     }
