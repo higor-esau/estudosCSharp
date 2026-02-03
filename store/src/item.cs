@@ -4,8 +4,9 @@ class Item
     public string Name {get; private set;}
     public int Price {get; private set;}
 
-    public Item(string name, int price)
+    public Item(int id, string name, int price)
     {
+        Id =id;
         Name = name;
         Price = price;
     }
@@ -13,7 +14,7 @@ class Item
 //um pequeno exemplo de polimorfismo
 class Consumable : Item
 {
-    public Consumable(string name, int price) : base(name, price)
+    public Consumable(int id, string name, int price) : base(id ,name, price)
     {
     }
 }
