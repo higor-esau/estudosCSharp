@@ -23,15 +23,33 @@ class InventoryItem
     {
         return quantity <= Quantity;
     }
+    public bool RemoveItem(int quantity)
+    {
+        if(quantity < 0)
+            return false;
+        if(Quantity < quantity)
+            return false;
+    
+        Quantity-=quantity;
+        return true;
+    }
 }
 
-class Inventory
+class Inventory: ICanReceiveItems, ICanProvideItems
 {
     private List<InventoryItem> items;
 
     public Inventory(List<InventoryItem> items)
     {
         this.items = items;
+    }
+
+    public void AddItem(Item item, int quantity)
+    {
+        if(quantity < 0)
+            throw new ArgumentNullException(nameof(quantity), "Value invalid");
+        
+        items.Add(new InventoryItem(item, quantity));
     }
 
     public bool HasItemQuantity(int itemId, int quantity)
@@ -42,5 +60,23 @@ class Inventory
                 return item.HasQuantity(quantity);
         }
         return false;
+    }
+
+    public void RemoveItem(int itemId, int quantity)
+    {
+        foreach(var item in items)
+        {
+            if(itemId == item.Id){
+
+                if(!item.HasQuantity(quantity)){
+                    throw new ArgumentNullException(nameof(quantity), "Value invalid");
+                }
+                
+                if(!item.RemoveItem(quantity)){
+                    throw new ArgumentNullException(nameof(quantity), "Erro ao remover");
+                }
+                break;
+            }
+        }
     }
 }
